@@ -1,3 +1,6 @@
+# Configurating for Wilson II 3D printer
+Started configurating at 2020-01-15, trying to incorporate these changes into new version 04/04/2020.
+
 # Marlin 3D Printer Firmware
 
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
