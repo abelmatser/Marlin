@@ -734,7 +734,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */ 
 //TODO: Z Steps per unit correct?
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 105 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 800, 105 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -883,11 +883,11 @@
 /**
  * Z Servo Probe, such as an endstop switch on a rotating arm.
  */
-//#define Z_PROBE_SERVO_NR 0       // Defaults to SERVO 0 connector.
+// #define Z_PROBE_SERVO_NR 0       // Defaults to SERVO 0 connector.
 //#define Z_SERVO_ANGLES { 70, 0 } // Z Servo Deploy and Stow angles 
 //TODO: Z_PROBE_SERVO_NR
 #define Z_PROBE_SERVO_NR 0       // Defaults to SERVO 0 connector.
-#define Z_SERVO_ANGLES { 90, 0 } // Z Servo Deploy and Stow angles
+#define Z_SERVO_ANGLES { 0, 90 } // Z Servo Deploy and Stow angles
 
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
@@ -2254,6 +2254,7 @@
  * Set this manually if there are extra servos needing manual control.
  * Leave undefined or set to 0 to entirely disable the servo subsystem.
  */
+// TODO: switch back from cranking up from testing
 #define NUM_SERVOS 1 // Servo index starts with 0 for M280 command
 
 // (ms) Delay  before the next move will start, to give the servo time to reach its target angle.
