@@ -734,14 +734,17 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */ 
 //TODO: Z Steps per unit correct?
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 800, 105 }
+// #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 105 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 400, 105 }  // DRV8825 X and Y, A49888 Z and E
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */ 
-#define DEFAULT_MAX_FEEDRATE          { 100, 100, 3, 25 }
+// #define DEFAULT_MAX_FEEDRATE          { 100, 100, 3, 25 }
+// #define DEFAULT_MAX_FEEDRATE         {120, 120, 6, 25}    // (mm/sec)
+#define DEFAULT_MAX_FEEDRATE         {500, 500, 12, 120}  // Restored config
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -754,7 +757,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 9000, 9000, 500, 10000 }  // Restored config
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -781,7 +784,8 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-//#define CLASSIC_JERK
+// TODO: jerk
+// #define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
   #define DEFAULT_XJERK 10.0
   #define DEFAULT_YJERK 10.0
@@ -965,11 +969,11 @@
  * Specify a Probe position as { X, Y, Z }
  */
 //TODO: NOZZLE_TO_PROBE_OFFSET
-#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { -40, 10, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define MIN_PROBE_EDGE 10
+#define MIN_PROBE_EDGE 20
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -1100,6 +1104,9 @@
 #define Z_HOME_DIR -1
 
 // @section machine
+
+// Set home offset
+// M206 [X<offset>] [Y<offset>] [Z<offset>]
 
 // The size of the print bed
 #define X_BED_SIZE 200
@@ -1357,6 +1364,9 @@
 // For DELTA this is the top-center of the Cartesian print volume.
 //#define MANUAL_X_HOME_POS 0
 //#define MANUAL_Y_HOME_POS 0
+//#define MANUAL_Z_HOME_POS 0
+// #define MANUAL_X_HOME_POS 100
+// #define MANUAL_Y_HOME_POS 150
 //#define MANUAL_Z_HOME_POS 0
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
