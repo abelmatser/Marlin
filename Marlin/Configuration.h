@@ -673,8 +673,8 @@
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
 // TODO: TMC2209 for X and Y
-//#define X_DRIVER_TYPE  A4988
-//#define Y_DRIVER_TYPE  A4988
+#define X_DRIVER_TYPE  TMC2209
+#define Y_DRIVER_TYPE  TMC2209
 //#define Z_DRIVER_TYPE  A4988
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
@@ -735,7 +735,7 @@
  */ 
 //TODO: Z Steps per unit correct?
 // #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 105 }
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 400, 105 }  // DRV8825 X and Y, A49888 Z and E
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 105 }  // TMC2209 X and Y, A49888 Z and E
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1070,8 +1070,8 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 //TODO: INVERT_-_DIR
-#define INVERT_X_DIR false
-#define INVERT_Y_DIR false
+#define INVERT_X_DIR true  # TMC2209
+#define INVERT_Y_DIR true  # TMC2209
 #define INVERT_Z_DIR false
 
 // @section extruder
